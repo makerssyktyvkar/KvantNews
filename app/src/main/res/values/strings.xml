@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KvantNews</string>
+    <string name="havent_account">Нет акаунта?</string>
+    <string name="create">Создать</string>
+    <string name="login">Войти</string>
+    <string name="user">Пользователь</string>
+    <string name="password">Пароль</string>
+    <string name="remind_password">Напомнить пароль</string>
+</resources>
