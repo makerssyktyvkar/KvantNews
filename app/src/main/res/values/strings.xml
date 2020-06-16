@@ -21,4 +21,7 @@
     <string name="this_week">Эта неделя</string>
     <string name="this_month">Этот месяц</string>
     <string name="this_year">Этот год</string>
+    <string name="events">Мероприятия</string>
+    <string name="learning">Обучение</string>
+    <string name="competitions">Соревнования</string>
 </resources>
