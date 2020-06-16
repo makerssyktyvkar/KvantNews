@@ -9,4 +9,6 @@
     <color name="login_button_text">#fffcff</color>
     <color name="gray">#8b8b8b</color>
     <color name="remind_password_text">#d8cfc8</color>
+    <color name="tool_bar">#1572fe</color>
+    <color name="red">#fd0002</color>
 </resources>
