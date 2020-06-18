@@ -24,4 +24,19 @@
     <string name="events">Мероприятия</string>
     <string name="learning">Обучение</string>
     <string name="competitions">Соревнования</string>
+    <string name="main_host_dns">https://kvantfp.000webhostapp.com/</string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="user_name">Имя пользователя</string>
+    <string name="mail">Почта</string>
+    <string name="no_internet_connection">Отсутствует подключение к интернету</string>
+    <string name="please_wait">Пожалуйста, подождите</string>
+    <string name="its_fail">Что-то пошло не так</string>
+    <string name="you_are_successfully_registrated">Вы успешно зарегистрировались</string>
+    <string name="passwords_should_equals">Пароли должны совпадать</string>
+    <string name="lenght_of_password">Длина пароля должна быть больше 4 и меньше 16 символов</string>
+    <string name="lenght_of_login">Длина логина должна быть больше 4 и меньше 20 символов</string>
+    <string name="failed_email">Неверный адрес электронной почты</string>
+    <string name="enter_correct_password">Введите корректный логин</string>
+    <string name="password_remind_sended">Письмо подтверждения изменения пароля отправлено на вашу почту</string>
 </resources>
