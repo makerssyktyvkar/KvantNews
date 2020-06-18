@@ -13,9 +13,8 @@ public class ExitFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = null;
         requireActivity().finishAffinity();
-        return root;
+        return null;
     }
 
 

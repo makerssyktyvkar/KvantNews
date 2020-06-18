@@ -6,13 +6,6 @@
     <string name="user">Пользователь</string>
     <string name="password">Пароль</string>
     <string name="remind_password">Напомнить пароль</string>
-    <string name="title_activity_main_drawer">MainDrawerActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-
     <string name="menu_activities">Активности</string>
     <string name="this_week">Эта неделя</string>
     <string name="this_month">Этот месяц</string>
@@ -45,7 +38,6 @@
     <string name="developers">Проект двух начинающих программистов из Сыктывкара</string>
     <string name="special_for">Специально для Кванториума</string>
     <string name="exit_from_account">Выйти из аккаунта</string>
-
     <string name="news">Новости</string>
     <string name="timetable">Расписание</string>
     <string name="posts">Новости курсов</string>

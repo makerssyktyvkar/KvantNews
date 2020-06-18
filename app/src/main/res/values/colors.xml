@@ -13,11 +13,7 @@
     <color name="red">#fd0002</color>
     <color name="black">#000000</color>
 
-    <color name="blue">#0231a1</color>
-    <color name="green">#006633</color>
-    <color name="orange">#ff6400</color>
-    <color name="black95">#95000000</color>
-    <color name="black60">#60000000</color>
+
     <color name="background_news">#33cdc7</color>
     <color name="dark_background_news">#1d7471</color>
     <color name="light_green">#54c147</color>

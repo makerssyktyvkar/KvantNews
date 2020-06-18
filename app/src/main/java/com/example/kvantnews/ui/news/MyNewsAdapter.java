@@ -28,7 +28,7 @@ public class MyNewsAdapter extends ArrayAdapter<News> {
             assert news != null;
             ((TextView) convertView.findViewById(R.id.title)).setText(news.title);
             ((TextView) convertView.findViewById(R.id.message)).setText(String.valueOf(news.message));
-            ((TextView) convertView.findViewById(R.id.date)).setText(String.valueOf(news.additionalInfo));
+            ((TextView) convertView.findViewById(R.id.date)).setText(String.valueOf(news.additionalInfo.substring(0,11)));
             if(news.image != null){
                 ((ImageView) convertView.findViewById(R.id.news_image)).setVisibility(View.VISIBLE);
                 ((ImageView) convertView.findViewById(R.id.news_image)).setImageBitmap(news.image);
