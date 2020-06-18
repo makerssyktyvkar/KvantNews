@@ -5,41 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainDrawerActivity">
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/tool_bar">
-        <com.google.android.material.appbar.AppBarLayout
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="60dp"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            android:divider="@null">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/tool_bar"
+            app:titleTextColor="@color/white"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                android:background="@color/tool_bar"
-                android:divider="@null"/>
-            </com.google.android.material.appbar.AppBarLayout>
-
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@null"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/search_icon"
-            android:layout_marginEnd="10dp"
-            tools:ignore="ContentDescription"
-            android:scaleType="centerCrop"
-            android:divider="@null"
-            android:id="@+id/search_btn"
-            />
-    </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

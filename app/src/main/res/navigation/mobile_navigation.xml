@@ -11,16 +11,39 @@
         android:label="@string/menu_activities"
         tools:layout="@layout/fragment_activities" />
 
+    <fragment
+        android:id="@+id/nav_news"
+        android:name="com.example.kvantnews.ui.news.NewsFragment"
+        android:label="@string/news"
+        tools:layout="@layout/fragment_news">
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.kvantnews.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_timetable"
+        android:name="com.example.kvantnews.ui.timetable.TimetableFragment"
+        android:label="@string/timetable"
+        tools:layout="@layout/fragment_timetable" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.kvantnews.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_posts"
+        android:name="com.example.kvantnews.ui.posts.PostsFragment"
+        android:label="@string/posts"
+        tools:layout="@layout/fragment_posts" />
+    <fragment
+        android:id="@+id/nav_achievements"
+        android:name="com.example.kvantnews.ui.achievements.AchievementsFragment"
+        android:label="@string/achievements"
+        tools:layout="@layout/fragment_achievements" />
+    <fragment
+        android:id="@+id/nav_support"
+        android:name="com.example.kvantnews.ui.support.SupportFragment"
+        android:label="@string/support"
+        tools:layout="@layout/fragment_support" />
+
+    <fragment
+        android:id="@+id/nav_exit"
+        android:name="com.example.kvantnews.ui.exit.ExitFragment"
+        android:label="@string/menu_activities" />
+
+
 </navigation>

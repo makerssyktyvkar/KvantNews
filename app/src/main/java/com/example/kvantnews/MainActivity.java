@@ -16,9 +16,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.onesignal.OneSignal;
+
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     EditText password_et, login_et;
@@ -38,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ((Button)findViewById(R.id.create_account_btn)).setOnClickListener(this);
         ((Button)findViewById(R.id.login_btn)).setOnClickListener(this);
         ((Button)findViewById(R.id.remind_password_btn)).setOnClickListener(this);
+
+        if(new User(this).selectAll().size()!=0) startMainDrawerActivity();
     }
 
     @Override
@@ -56,6 +69,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                          type = new IsOkUser(login, password, this).execute().get();
                     }catch (Exception e) {
                         type = "fail";
+                    }
+                    if(!type.equals("fail")){
+                        OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
+                            @Override
+                            public void idsAvailable(String userId, String registrationId) {
+                                User.UniqueID = userId;
+
+                            }
+                        });
+                        new AddToMainDBOSId(login,User.UniqueID,getApplicationContext()).execute();
+                        OneSignal.sendTag("sub","true");
+                        startMainDrawerActivity();
                     }
                 }else{
                     Toast.makeText(this, R.string.no_internet_connection, Toast.LENGTH_SHORT).show();
@@ -127,15 +152,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected String doInBackground(String... strings) {
             String res = "fail";
+            try {
+                String url = context.getResources().getString(R.string.main_host_dns) + "getTypeOfUser.php";
+                Document document = Jsoup.connect(url).maxBodySize(0).
+                        data("login", login).data("password", password).post();
+                String type = document.text();
+                if(type.equals("0")){
+                    return res;
+                }else{
+                    new User(context).insert(login, Integer.parseInt(type));
+                    return type;
+                }
+            } catch (Exception e) {
+                return res;
+            }
 
-            return res;
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             if(!s.equals("fail")){
-                Toast.makeText(context, R.string.please_wait, Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, R.string.please_wait, Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(context, R.string.its_fail, Toast.LENGTH_SHORT).show();
             }
@@ -169,5 +207,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return BitmapFactory.decodeStream(is);
         }
         return null;
+    }
+
+    private void startMainDrawerActivity(){
+        Intent intent = new Intent(MainActivity.this, MainDrawerActivity.class);
+        startActivity(intent);
+    }
+
+    public static class AddToMainDBOSId extends AsyncTask<String,Void,String> {
+        private String login, Id;
+        private Context context;
+
+    public AddToMainDBOSId(String login, String Id, Context context){
+            this.login = login;
+            this.Id = Id;
+            this.context = context;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String res = "ok";
+            try{
+                String url = context.getResources().getString(R.string.main_host_dns) + "AddOSId.php";
+                Document document = Jsoup.connect(url).
+                        data("id", Id).
+                        data("login", login).post();
+            }catch (Exception e){
+                res = "fail";
+            }
+            return res;
+        }
     }
 }
