@@ -64,30 +64,21 @@ public class ActivitiesFragment extends Fragment implements View.OnClickListener
                 b1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red));
                 b2.setBackgroundColor(Color.TRANSPARENT);
                 b3.setBackgroundColor(Color.TRANSPARENT);
-
-                competitionsCount.setText(counts[0][0]);
-                learningCount.setText(counts[0][1]);
-                eventsCount.setText(counts[0][2]);
                 break;
             case 1:
                 b1.setBackgroundColor(Color.TRANSPARENT);
                 b2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red));
                 b3.setBackgroundColor(Color.TRANSPARENT);
-
-                competitionsCount.setText(counts[1][0]);
-                learningCount.setText(counts[1][1]);
-                eventsCount.setText(counts[1][2]);
                 break;
             case 2:
                 b1.setBackgroundColor(Color.TRANSPARENT);
                 b2.setBackgroundColor(Color.TRANSPARENT);
                 b3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red));
-
-                competitionsCount.setText(counts[2][0]);
-                learningCount.setText(counts[2][1]);
-                eventsCount.setText(counts[2][2]);
                 break;
         }
+        competitionsCount.setText(counts[pos][0]);
+        learningCount.setText(counts[pos][1]);
+        eventsCount.setText(counts[pos][2]);
     }
 
     @Override
@@ -109,18 +100,21 @@ public class ActivitiesFragment extends Fragment implements View.OnClickListener
                 Intent intent1 = new Intent(getActivity(), ActivitiesActivity.class);
                 intent1.putExtra("time_type", pos);
                 intent1.putExtra("type", 1);
+                intent1.putExtra("max_count", counts[pos][0]);
                 startActivity(intent1);
                 break;
             case R.id.learning:
                 Intent intent2 = new Intent(getActivity(), ActivitiesActivity.class);
                 intent2.putExtra("time_type", pos);
                 intent2.putExtra("type", 2);
+                intent2.putExtra("max_count", counts[pos][1]);
                 startActivity(intent2);
                 break;
             case R.id.events:
                 Intent intent3 = new Intent(getActivity(), ActivitiesActivity.class);
                 intent3.putExtra("time_type", pos);
                 intent3.putExtra("type", 3);
+                intent3.putExtra("max_count", counts[pos][2]);
                 startActivity(intent3);
                 break;
         }

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ActivitiesDB {
 
@@ -84,8 +85,20 @@ public class ActivitiesDB {
         return arr;
     }
 
-    public ArrayList<Activity> selectSpecials(String type2, int minTime) {
+    public ArrayList<Activity> selectSpecials(String type2, int timeType) {
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, "type = ?", new String[]{ type2}, null, null, null);
+        int minTime = (int) (System.currentTimeMillis() / 1000);
+        switch (timeType){
+            case 1:
+                minTime -= 3600 * 24 * 7;
+                break;
+            case 2:
+                minTime -= 3600 * 24 * 30;
+                break;
+            case 3:
+                minTime -= 3600 * 24 * 365;
+                break;
+        }
 
         ArrayList<Activity> arr = new ArrayList<>();
         mCursor.moveToLast();
