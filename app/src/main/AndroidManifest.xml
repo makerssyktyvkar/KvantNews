@@ -24,6 +24,7 @@
         <activity android:name=".ui.posts.DeleteCourseNews" />
         <activity android:name=".ui.posts.ChangeCourseNews" />
         <activity android:name=".ui.support.DeleteSupportSecond" />
+        <activity android:name=".ui.activities.ActivitiesActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
